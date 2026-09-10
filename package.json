@@ -1,0 +1,10 @@
+{
+  "name": "fiszki-study-apps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "check": "node --check assets/js/flashcards.js && node --check digital-app/app.js && node --check print-app/app.js"
+  }
+}

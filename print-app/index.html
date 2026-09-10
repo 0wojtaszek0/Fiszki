@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiszki do druku</title>
+    <link rel="stylesheet" href="../assets/css/site.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Fiszki do druku</div>
+      <nav class="nav" aria-label="Nawigacja">
+        <a href="../index.html">Powrót</a>
+      </nav>
+    </header>
+
+    <section class="toolbar">
+      <div class="panel">
+        <label for="print-file">Wybierz CSV
+          <input id="print-file" type="file" accept=".csv,text/csv" />
+        </label>
+
+        <label for="print-sample">Przykładowy plik
+          <select id="print-sample">
+            <option value="">— wybierz —</option>
+            <option value="../slowka_a1.csv">slowka_a1.csv</option>
+            <option value="../slowka_a2.csv">slowka_a2.csv</option>
+            <option value="../slowka_b1.csv">slowka_b1.csv</option>
+            <option value="../slowka_b2.csv">slowka_b2.csv</option>
+          </select>
+        </label>
+
+        <label for="cards-per-page">Fiszki na stronie
+          <select id="cards-per-page">
+            <option value="6">6 (3 × 2)</option>
+            <option value="8">8 (4 × 2)</option>
+            <option value="9">9 (3 × 3)</option>
+            <option value="12">12 (4 × 3)</option>
+          </select>
+        </label>
+
+        <button id="load-print-sample" class="secondary" type="button">Załaduj próbkę</button>
+        <button id="print-pdf" type="button">Drukuj PDF</button>
+      </div>
+    </section>
+
+    <main>
+      <div id="print-status" class="status" aria-live="polite" style="max-width: 1200px; margin: 16px auto 0; padding: 0 20px; display: block;">Załaduj CSV, aby wygenerować układ A4.</div>
+      <section id="print-output" class="flashcard-stage" aria-live="polite"></section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

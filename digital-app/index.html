@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiszki cyfrowe</title>
+    <link rel="stylesheet" href="../assets/css/site.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Fiszki cyfrowe</div>
+      <nav class="nav" aria-label="Nawigacja">
+        <a href="../index.html">Powrót</a>
+      </nav>
+    </header>
+
+    <section class="toolbar">
+      <div class="panel">
+        <label for="csv-file">Wybierz CSV
+          <input id="csv-file" type="file" accept=".csv,text/csv" />
+        </label>
+
+        <label for="sample-select">Przykładowy plik
+          <select id="sample-select">
+            <option value="">— wybierz —</option>
+            <option value="../slowka_a1.csv">slowka_a1.csv</option>
+            <option value="../slowka_a2.csv">slowka_a2.csv</option>
+            <option value="../slowka_b1.csv">slowka_b1.csv</option>
+            <option value="../slowka_b2.csv">slowka_b2.csv</option>
+          </select>
+        </label>
+
+        <button id="load-sample" class="secondary" type="button">Załaduj próbkę</button>
+      </div>
+    </section>
+
+    <main>
+      <div id="status" class="status" aria-live="polite" style="max-width: 1200px; margin: 16px auto 0; padding: 0 20px; display: block;">Brak danych. Wybierz plik CSV lub załaduj wzorcowy zestaw.</div>
+
+      <section class="study-layout" aria-label="Prywatne stosy do nauki">
+        <div class="study-pile pile-known" id="known-pile" role="button" tabindex="0" aria-label="Umiesz">
+          <span class="pile-title">umiem</span>
+          <strong id="known-count">0</strong>
+          <ul id="known-list" class="pile-list"><li>brak</li></ul>
+        </div>
+
+        <section class="flashcard-stage" aria-live="polite">
+          <article id="flashcard" class="flashcard" hidden>
+            <div class="face-label" id="face-label">Przód</div>
+            <div id="face-content" class="face-content word"></div>
+          </article>
+        </section>
+
+        <div class="study-pile pile-unknown" id="unknown-pile" role="button" tabindex="0" aria-label="Nie umiesz">
+          <span class="pile-title">nie umiem</span>
+          <strong id="unknown-count">0</strong>
+          <ul id="unknown-list" class="pile-list"><li>brak</li></ul>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button id="prev-card" type="button" class="ghost">Poprzednia</button>
+        <button id="flip-card" type="button">Pokaż tłumaczenie</button>
+        <button id="next-card" type="button">Następna</button>
+      </div>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
